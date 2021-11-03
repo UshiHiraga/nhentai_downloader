@@ -2,10 +2,7 @@
 
 Esta es una extensión diseñada para los navegadores basados en Chromium (Ejemplo: Edge y Chrome) que te permitirá obtener doujins de [nhentai](https://nhentai.net/) directamente en PDF.
 
-## Instalación
-Tenés dos manera de conseguir la extensión:
-
-### Como extensión de terceros.
+## Instalación como extensión de terceros.
 Consiga el archivo CRX en [Releases](https://github.com/UshiHiraga/nhentai_downloader/releases), luego siga las instrucciones para instalar una extensión de terceros en vuestro navegador.
 
   1. Dirígete a chrome://extensions/ (Vuestro navegador te redirigirá a la página de administración de extensiones).
