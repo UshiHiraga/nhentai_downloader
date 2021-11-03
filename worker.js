@@ -133,7 +133,7 @@ function InIhentaiGeneratePDF(result){
             });
 
             big_div.innerText = chrome.i18n.getMessage("info_generando_archivo");
-            pdfMake.createPdf(doc_definition).download(NORMAL_CODE + "_" + PDF_TITLE, function(a){
+            pdfMake.createPdf(doc_definition).download(NORMAL_CODE + "_" + PDF_TITLE + ".pdf", function(a){
                 big_div.innerText = chrome.i18n.getMessage("info_trabajo_finalizado");
                 chrome.runtime.sendMessage(["cerrar_tab", result.tab_closed]);
             });
@@ -150,6 +150,8 @@ function InIhentaiGeneratePDF(result){
             img.setAttribute("src", BASE_LINK + MEDIA_ID + "/" + i + ".jpg");
         } else if (PAGES_INFO[i - 1].t == "p"){
             img.setAttribute("src", BASE_LINK + MEDIA_ID + "/" + i + ".png");
+        } else if(PAGES_INFO[i - 1].t == "g"){
+            img.setAttribute("src", chrome.i18n.getMessage("image_gif_image"));
         };
     }
 
@@ -164,7 +166,9 @@ function InIhentaiGeneratePDF(result){
         img.setAttribute("src", BASE_LINK + MEDIA_ID + "/1.jpg");
     } else if(PAGES_INFO[i - 1].t == "p"){
         img.setAttribute("src", BASE_LINK + MEDIA_ID + "/1.png");
-    };
+    } else if(PAGES_INFO[i - 1].t = "g"){
+        img.setAttribute("src", chrome.i18n.getMessage("image_gif_image"));
+    }
 };
 
 function Main_DrawImages_IhentaiPage(result){
@@ -206,6 +210,8 @@ function Main_DrawImages_IhentaiPage(result){
         img.setAttribute("src", BASE_LINK + MEDIA_ID + "/1.jpg");
     } else if(PAGES_INFO[i - 1].t == "p"){
         img.setAttribute("src", BASE_LINK + MEDIA_ID + "/1.png");
+    } else if(PAGES_INFO[i - 1].t == "g"){
+        img.setAttribute("src", chrome.i18n.getMessage("image_gif_image"));
     }
 
     // Revisamos si está en retrato o pánoramica.
@@ -258,7 +264,9 @@ function Main_DrawImages_IhentaiPage(result){
             img.setAttribute("src", BASE_LINK + MEDIA_ID + "/" + i + ".jpg");
         } else if (PAGES_INFO[i - 1].t == "p"){
             img.setAttribute("src", BASE_LINK + MEDIA_ID + "/" + i + ".png");
-        }
+        } else if(PAGES_INFO[i - 1].t == "g"){
+            img.setAttribute("src", chrome.i18n.getMessage("image_gif_image"));
+        };
 
         // Revisamos si está en retrato o pánoramica.
         if(PAGES_INFO[i-1].h > PAGES_INFO[i-1].w){
