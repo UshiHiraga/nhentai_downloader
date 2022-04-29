@@ -1,3 +1,5 @@
+export const hola = "aaa";
+
 function Installing(){
     console.log("La extensión ha sido instalada.");
 };
