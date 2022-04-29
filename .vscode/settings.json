@@ -1,0 +1,21 @@
+{
+    "files.exclude": {
+        "**/.**": true,
+        "**/.DS_Store": false,
+        "**/.git": false,
+        "**/.hg": false,
+        "**/.svn": false,
+        "**/CVS": false,
+        "**/Thumbs.db": false
+    },
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "compressed",
+            "extensionName": ".min.css",
+            "savePath": "/styles/css"
+        },
+    ],
+    "liveSassCompile.settings.showOutputWindowOn": "Error",
+    "liveServer.settings.donotVerifyTags": true,
+    "liveServer.settings.ChromeDebuggingAttachment": false
+}
