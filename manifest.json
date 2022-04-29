@@ -1,33 +1,33 @@
 {
     "name": "__MSG_nombre_extension__",
     "description": "__MSG_descripcion__",
-    "version": "1.2",
+    "version": "1.1.1",
     "manifest_version": 3,
     "default_locale": "es",
     "permissions": ["tabs", "scripting"],
     "host_permissions": ["https://nhentai.net/*/", "https://i.nhentai.net/*"],
     "background": {
-        "service_worker": "worker.js"
+        "service_worker": "/scripts/worker.js"
     },
     "icons":{
-        "16": "icons/16icon.png",
-        "32": "icons/32icon.png",
-        "48": "icons/48icon.png",
-        "64": "icons/64icon.png",
-        "96": "icons/96icon.png",
-        "128": "icons/128icon.png",
-        "256": "icons/256icon.png"
+        "16": "/resources/icons/16icon.png",
+        "32": "/resources/icons/32icon.png",
+        "48": "/resources/icons/48icon.png",
+        "64": "/resources/icons/64icon.png",
+        "96": "/resources/icons/96icon.png",
+        "128": "/resources/icons/128icon.png",
+        "256": "/resources/icons/256icon.png"
     },
     "content_scripts": [
         {
             "matches": ["https://i.nhentai.net/descargando-doujin"],
-            "css": ["css/main_estilos.css"],
-            "js": ["pdfmake.min.js"]
+            "css": ["/styles/css/main_estilos.min.css"],
+            "js": ["/scripts/pdfmake.min.js"]
         },
         {
             "matches": ["https://nhentai.net/g/*/"],
-            "js": ["main_adding_nhentai.js"],
-            "css": ["css/main_estilos.css"]
+            "js": ["/scripts/main_adding_nhentai.js"],
+            "css": ["/styles/css/main_estilos.min.css"]
         }
     ]
 }
