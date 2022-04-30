@@ -53,15 +53,7 @@ function GetDataAndDownload(){
     });
 
     //Conseguimos los datos.
-    let script = Array.from(document.querySelectorAll("script"))
-    script = script.find((e) => e.innerText.includes("window._gallery")).innerText;
-    if(!script){
-        throw new Error("No pudimos encontrar los datos.");
-    };
 
-    script = script.replace("window._gallery = JSON.parse(\"", "").replace("\");", "");
-    script = script.replace(/\\u0022/g, "\"").replace(/\n/g, "").replace(/\t/g, "");
-    script = JSON.parse(script);
 
     function Comprobation(e){
         return e.h > e.w;
