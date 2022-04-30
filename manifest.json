@@ -1,12 +1,13 @@
 {
-    "name": "__MSG_nombre_extension__",
-    "description": "__MSG_descripcion__",
+    "name": "__MSG_extension_name__",
+    "description": "__MSG_description__",
     "version": "1.1.1",
     "manifest_version": 3,
     "default_locale": "es",
     "permissions": [
         "tabs",
-        "scripting"
+        "scripting",
+        "storage"
     ],
     "host_permissions": [
         "https://nhentai.net/*/",
@@ -27,20 +28,15 @@
     "content_scripts": [
         {
             // Página principal de los doujins.
-            "matches": [
-                "https://nhentai.net/g/*/"
-            ],
-            "css": [
-                "/styles/css/main_nhentai.min.css"
-            ],
-            "js": [
-                "/scripts/main_nhentai.js"
-            ]
+            "matches": ["https://nhentai.net/g/*/"],
+            "css": ["/styles/css/main_styles.min.css"],
+            "js": ["/scripts/main_nhentai.js"]
+        },
+        {
+            //Página principal de la descarga de los doujins.
+            "matches": ["https://i.nhentai.net/descargando-doujin"],
+            "css": ["/styles/css/main_styles.min.css"],
+            "js": ["/scripts/main_ihentai.js"]
         }
-        // {
-        //     "matches": ["https://i.nhentai.net/descargando-doujin"],
-        //     "css": ["/styles/css/main_estilos.min.css"],
-        //     "js": ["/scripts/js/pdfmake.min.js"]
-        // }
     ]
 }

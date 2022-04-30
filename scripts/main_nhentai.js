@@ -1,18 +1,3 @@
-// const PagesData = {
-//     type: "jpg" | "png" | "gif" | "webp",
-//     width: Number,
-//     heigth: Number,
-//     orientation: "vertical" | "horizontal" | "square"
-// }
-
-// const DoujinData = {
-//     repo_id: String,
-//     media_id: String,
-//     title: String,
-//     num_pages: Number,
-//     pages: Array
-// }
-
 function GetMetadataAndTransform() {
     function ConvertOriginalToImage(e) {
         let type = "jpg";
@@ -47,12 +32,31 @@ function GetMetadataAndTransform() {
         num_pages: original_data.num_pages,
         pages: original_data.images.pages.map(ConvertOriginalToImage)
     };
-}
+};
+
+async function GenerateDownload(e) {
+    const DoujinDataToQueue = {
+        doujin_information: GetMetadataAndTransform(),
+        hasFailed: false
+    };
+
+    await chrome.runtime.sendMessage({ code: "generate-download-doujin", data: DoujinDataToQueue });
+    console.log("Este doujin se ha puesto en cola de espera");
+};
 
 function Main() {
+    //Cambiamos el botón de descarga por defecto.
+    const actual_button = document.getElementById("download");
+    actual_button.innerText = chrome.i18n.getMessage("button_download_nhentai_text");
+    actual_button.classList.toggle("btn-disabled");
+    actual_button.addEventListener("click", GenerateDownload);
 
-    a.parentElement.appendChild(b);
-    console.log("Aquí");
-}
+    // Añadimos el nuevo botón de descarga.
+    const new_big_button = document.createElement("h1");
+    new_big_button.classList.add("btn", "btn-primary", "extension_download_button");
+    new_big_button.innerText = chrome.i18n.getMessage("button_download_nhentai_text");
+    new_big_button.addEventListener("click", GenerateDownload);
+    document.getElementById("cover").insertAdjacentElement("afterbegin", new_big_button);
+};
 
 Main();

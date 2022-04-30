@@ -1,9 +1,9 @@
 {
-    "nombre_extension":{
+    "extension_name":{
         "description": "Título de la extensión",
         "message": "Nhentai a PDF"
     },
-    "descripcion":{
+    "description":{
         "descripcion": "Description de la extensión",
         "message": "Descarga doujins desde nhentai en PDF."
     },
