@@ -15,8 +15,8 @@ function GetMetadataAndTransform() {
             type,
             width: e.w,
             heigth: e.h,
-            orientation: orientation
-        }
+            orientation
+        };
     };
     const scripts_array = Array.from(document.querySelectorAll("script"));
     let script_text = scripts_array.find((e) => e.innerText.includes("window._gallery")).innerText;
@@ -28,33 +28,29 @@ function GetMetadataAndTransform() {
     return {
         repo_id: String(original_data.media_id),
         media_id: String(original_data.id),
-        title: original_data.title.pretty,
+        title: String(original_data.title.pretty),
         num_pages: original_data.num_pages,
         pages: original_data.images.pages.map(ConvertOriginalToImage)
     };
 };
 
-async function GenerateDownload(e) {
-    const DoujinDataToQueue = {
-        doujin_information: GetMetadataAndTransform(),
-        hasFailed: false
-    };
-
-    await chrome.runtime.sendMessage({ code: "generate-download-doujin", data: DoujinDataToQueue });
+async function GenerateDownload() {
+    await chrome.runtime.sendMessage({ code: "generate-download-doujin", data: GetMetadataAndTransform() });
     console.log("Este doujin se ha puesto en cola de espera");
+    return true;
 };
 
 function Main() {
     //Cambiamos el botón de descarga por defecto.
     const actual_button = document.getElementById("download");
-    actual_button.innerText = chrome.i18n.getMessage("button_download_nhentai_text");
+    actual_button.innerText = chrome.i18n.getMessage("generate_download_nhentai");
     actual_button.classList.toggle("btn-disabled");
     actual_button.addEventListener("click", GenerateDownload);
 
     // Añadimos el nuevo botón de descarga.
     const new_big_button = document.createElement("h1");
     new_big_button.classList.add("btn", "btn-primary", "extension_download_button");
-    new_big_button.innerText = chrome.i18n.getMessage("button_download_nhentai_text");
+    new_big_button.innerText = chrome.i18n.getMessage("generate_download_nhentai");
     new_big_button.addEventListener("click", GenerateDownload);
     document.getElementById("cover").insertAdjacentElement("afterbegin", new_big_button);
 };
