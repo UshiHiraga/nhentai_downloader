@@ -26,8 +26,8 @@ function GetMetadataAndTransform() {
     const original_data = JSON.parse(script_text);
 
     return {
-        repo_id: original_data.id,
-        media_id: original_data.media_id,
+        repo_id: String(original_data.media_id),
+        media_id: String(original_data.id),
         title: original_data.title.pretty,
         num_pages: original_data.num_pages,
         pages: original_data.images.pages.map(ConvertOriginalToImage)

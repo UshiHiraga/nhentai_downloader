@@ -4,6 +4,38 @@
 }
 
 //Estilos para la página ihentai.net
-center, hr {
+center,
+hr {
     display: none;
+}
+
+.body_printable {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.doujin_page_image {
+    page-break-after: always;
+    page-break-inside: avoid;
+    display: block;
+}
+
+.vertical {
+    margin: 0 auto;
+    width: auto;
+    height: 11in;
+}
+
+.horizontal {
+    margin: 25% 0in auto 0in;
+    width: 8.5in;
+    height: auto;
+}
+
+@media print {
+    @page {
+        size: letter;
+        margin: 0in;
+    }
 }
