@@ -6,7 +6,7 @@
     "default_locale": "es",
     "permissions": [
         "tabs",
-        "scripting",
+        
         "storage"
     ],
     "host_permissions": [
@@ -27,16 +27,20 @@
     },
     "content_scripts": [
         {
-            // Página principal de los doujins.
             "matches": ["https://nhentai.net/g/*/"],
             "css": ["/styles/css/main_styles.min.css"],
             "js": ["/scripts/main_nhentai.js"]
         },
         {
-            //Página principal de la descarga de los doujins.
-            "matches": ["https://i.nhentai.net/descargando-doujin"],
+            "matches": ["https://i.nhentai.net/generando-doujin"],
             "css": ["/styles/css/main_styles.min.css"],
             "js": ["/scripts/main_ihentai.js"]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["/resources/pages/*"],
+            "matches": ["https://i.nhentai.net/*"]
         }
     ]
 }
