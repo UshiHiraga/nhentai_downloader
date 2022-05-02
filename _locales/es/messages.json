@@ -1,4 +1,8 @@
 {
+    "language_code": {
+        "description": "Language's ISO code.",
+        "message": "es"
+    },
     "extension_title": {
         "description": "Extension's title.",
         "message": "Nhentai a PDF"
