@@ -16,6 +16,7 @@
         },
     ],
     "liveSassCompile.settings.showOutputWindowOn": "Error",
+	"liveSassCompile.settings.generateMap": false,
     "liveServer.settings.donotVerifyTags": true,
     "liveServer.settings.ChromeDebuggingAttachment": false
 }
