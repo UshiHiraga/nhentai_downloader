@@ -8,7 +8,6 @@ function MultipleLoadImage(imageUrl) {
 
     // Definimos los métodos.
     imageElement.load = function () {
-        console.log(this);
         this.currentAttempt++;
         this.setAttribute("src", this.expectedUrl);
     };
@@ -28,8 +27,7 @@ function MultipleLoadImage(imageUrl) {
             window.dispatchEvent(new CustomEvent("DoujinImagesFailed", { detail: { element: this } }));
             throw new Error("Maximum number of attempts exceeded.");
         }
-
-        console.log(this);
+        
         console.warn(`Attempt ${this.currentAttempt} has failed. Retrying.`)
         this.load();
         return true;
