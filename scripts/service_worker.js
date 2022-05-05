@@ -1,11 +1,4 @@
 function InstallEventHandler() {
-    const default_configuration = {
-        "generateMethod": "normal",
-        "autoDownload": false,
-        "maxAttemptNumber": 10,
-    };
-
-    chrome.storage.local.set({"config": default_configuration});
     console.log("La extensión ha sido instalada.");
     return true;
 };
@@ -13,15 +6,10 @@ function InstallEventHandler() {
 function MessageEventHandler(message, sender, sendResponse) {
     async function CreateTabAndSaveData() {
         const id_sender = sender.tab.id;
-        const new_tab_propierties = {
-            active: false,
-            openerTabId: id_sender,
-            url: "https://i.nhentai.net/generando-doujin"
-        };
-
+        const new_tab_propierties = { active: false, openerTabId: id_sender, url: "https://i.nhentai.net/generando-doujin" };
         await chrome.storage.local.set({ ["request_from_tab_" + id_sender]: message.data })
         await chrome.tabs.create(new_tab_propierties);
-        return true;
+        sendResponse(true);
     };
 
     async function ReturnTabInfo() {
@@ -30,8 +18,9 @@ function MessageEventHandler(message, sender, sendResponse) {
         else sendResponse(null);
     };
 
-    async function KillTab(){
+    async function KillTab() {
         await chrome.tabs.remove(sender.tab.id);
+        sendResponse(true);
     }
 
     switch (message.code) {

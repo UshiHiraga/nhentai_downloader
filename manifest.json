@@ -32,7 +32,7 @@
         },
         {
             "matches": ["https://i.nhentai.net/generando-doujin"],
-            "css": ["/styles/css/main_styles.min.css"],
+            "css": ["/styles/main_styles.min.css"],
             "js": ["/scripts/main_ihentai.js"]
         }
     ],

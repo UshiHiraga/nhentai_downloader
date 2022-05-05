@@ -45,16 +45,17 @@ function MultipleLoadImage(imageUrl) {
 }
 
 function createDialogElement() {
-    function updateTitle() {
-        const actual = window.last_image_index;
-        main_title.innerText = chrome.i18n.getMessage("current_image_title", [actual, doujin_data.pages.length]);
-    }
     const dialog = document.createElement("dialog");
     dialog.classList.add("splash_dialog");
 
+    //Definimos los métodos.
+    dialog.updateTitle = function () {
+        const texto = chrome.i18n.getMessage("current_image_title", [window.last_image_index, doujin_data.pages.length]);
+        main_title.innerText = texto;
+        return true;
+    };
+
     const big_div = document.createElement("div");
-
-
     const main_title = document.createElement("p");
     main_title.classList.add("main_title");
     main_title.innerText = chrome.i18n.getMessage("current_image_title", [0, doujin_data.pages.length]);
@@ -69,23 +70,8 @@ function createDialogElement() {
     big_div.appendChild(b);
 
     dialog.appendChild(big_div);
-    dialog.updateTitle = updateTitle;
     return dialog;
-}
-
-function closeDoujinAndPrint() {
-    const last_page_element = document.createElement("img");
-    last_page_element.classList.add("doujin_page_image", "vertical");
-    last_page_element.setAttribute("src", getLocalImage("last_page"));
-    document.body.appendChild(last_page_element);
-
-    last_page_element.addEventListener("load", () => {
-        window.main_splash.close();
-        window.print()
-    });
-    return true;
-
-}
+};
 
 function getLocalImage(image_code) {
     const image_url = `/resources/pages/${chrome.i18n.getMessage("language_code")}/${image_code}.png`
@@ -95,14 +81,21 @@ function getLocalImage(image_code) {
 function loadNextImage() {
     window.last_image_index++;
     if (window.last_image_index > doujin_data.pages.length) {
-        closeDoujinAndPrint();
+        const last_page_element = document.createElement("img");
+        last_page_element.classList.add("doujin_page_image", "vertical");
+        last_page_element.setAttribute("src", getLocalImage("last_page"));
+        last_page_element.addEventListener("load", () => {
+            window.main_splash.close();
+            window.print()
+        });
+        document.body.appendChild(last_page_element);
         return true;
     };
 
     window.main_splash.updateTitle();
     const base_link = "https://i.nhentai.net";
     const page_data = doujin_data.pages[window.last_image_index - 1];
-    let url = `${base_link}/galleries/${doujin_data.repo_id}/${window.last_image_index}.${page_data.type}`;
+    const url = `${base_link}/galleries/${doujin_data.repo_id}/${window.last_image_index}.${page_data.type}`;
 
     const image_element = MultipleLoadImage(url);
     image_element.classList.add("doujin_page_image", page_data.orientation);
@@ -111,7 +104,7 @@ function loadNextImage() {
     return true;
 };
 
-function onErrorHandler(e) {
+function imageFailed(e) {
     console.error("La carga de una imagen falló");
     document.body.removeChild(e.detail.element);
 
@@ -119,19 +112,19 @@ function onErrorHandler(e) {
     image_element.classList.add("doujin_page_image", "vertical");
     image_element.load();
     document.body.appendChild(image_element);
-
     return true;
-}
+};
 
 async function Main() {
     const parent_tab = await chrome.runtime.sendMessage({ code: "who-is-my-parent" });
     const storage_data = await chrome.storage.local.get(null);
 
-    if (!parent_tab) await chrome.runtime.sendMessage({ code: "close-this-tab" })
-    window["last_image_index"] = 0;
+    if (!parent_tab) await chrome.runtime.sendMessage({ code: "close-this-tab" });
+
     window["doujin_data"] = storage_data["request_from_tab_" + parent_tab];
+    window["last_image_index"] = 0;
     window.addEventListener("DoujinImageLoaded", loadNextImage);
-    window.addEventListener("DoujinImagesFailed", onErrorHandler);
+    window.addEventListener("DoujinImagesFailed", imageFailed);
 
     window["main_splash"] = createDialogElement();
     document.body.appendChild(window.main_splash);

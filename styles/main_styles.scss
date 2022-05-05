@@ -25,18 +25,18 @@ hr {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
         p {
             font-size: 1.5rem;
             color: rgb(255, 255, 255);
             padding: 5px;
             margin: 0px;
+
             &.main_title {
                 font-size: 5rem;
             }
         }
     }
-
-
 }
 
 .body_printable {
@@ -52,13 +52,13 @@ hr {
 }
 
 .vertical {
-    margin: 0 auto;
+    margin: 0px auto;
     width: auto;
     height: 11in;
 }
 
 .horizontal {
-    margin: 25% 0in auto 0in;
+    margin: 15px 0in auto 0in;
     width: 8.5in;
     height: auto;
 }
@@ -67,9 +67,5 @@ hr {
     @page {
         size: letter;
         margin: 0in;
-    }
-
-    .splash_dialog {
-        display: none;
     }
 }
