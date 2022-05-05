@@ -16,5 +16,12 @@ Las instrucciones anteriores funcionan para la mayoría de los navegadores basad
 
 ### Español
 [@KanekoEJ](https://twitter.com/KanekoEJ)
-[@kakusatou_3333](https://twitter.com/kakusatou_3333)
 [@mochigomerenshu](https://twitter.com/mochigomerenshu)
+
+### Inglés
+[@Lumo_1121](https://twitter.com/Lumo_1121)
+[@mychristian2](https://twitter.com/mychristian2)
+
+### Esperanto
+[@yamasonson1](https://twitter.com/yamasonson1)
+[@hufy926](https://twitter.com/hufy926)

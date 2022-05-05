@@ -1,0 +1,30 @@
+{
+    "language_code": {
+        "description": "Language's ISO code.",
+        "message": "en"
+    },
+    "extension_title": {
+        "description": "Extension's title.",
+        "message": "Nhentai to PDF"
+    },
+    "description_extension": {
+        "description": "Extension's description.",
+        "message": "Download doujins from nhentai in pdf."
+    },
+    "generate_download_nhentai": {
+        "description": "In nhentai, this text is in the new download buttons.",
+        "message": "Download this doujin"
+    },
+    "current_image_title": {
+        "description": "In ihentai, this text shows how many pages has been downloaded",
+        "message": "Loading page $1 of $2"
+    },
+    "duration_warning": {
+        "description": "It warns that downloading the doujin is time consuming.",
+        "message": "This process could take a few minutes"
+    },
+    "do_not_close_tab": {
+        "description": "It warns that one can't close the tab.",
+        "message": "Please do not close this tab"
+    } 
+}

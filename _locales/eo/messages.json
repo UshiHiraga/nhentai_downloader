@@ -1,0 +1,30 @@
+{
+    "language_code": {
+        "description": "Language's ISO code.",
+        "message": "eo"
+    },
+    "extension_title": {
+        "description": "Extension's title.",
+        "message": "Nhentai al PDF"
+    },
+    "description_extension": {
+        "description": "Extension's description.",
+        "message": "Elŝutu doujinoj de nhentai en pdf."
+    },
+    "generate_download_nhentai": {
+        "description": "In nhentai, this text is in the new download buttons.",
+        "message": "Elŝutu ĉi tiu doujin"
+    },
+    "current_image_title": {
+        "description": "In ihentai, this text shows how many pages has been downloaded",
+        "message": "Ŝarĝante paĝon $1 el $2"
+    },
+    "duration_warning": {
+        "description": "It warns that downloading the doujin is time consuming.",
+        "message": "Ĉi tiu procezo povus daŭri kelkajn minutojn"
+    },
+    "do_not_close_tab": {
+        "description": "It warns that one can't close the tab.",
+        "message": "Bonvolue ne fermi ĉi tiun langeton"
+    } 
+}
