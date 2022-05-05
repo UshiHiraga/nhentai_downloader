@@ -11,3 +11,10 @@ Consiga el archivo CRX en [Releases](https://github.com/UshiHiraga/nhentai_downl
   4. Felicidades, has instalado la extensión.
   
 Las instrucciones anteriores funcionan para la mayoría de los navegadores basados en Chromium.
+
+## Créditos de las imagenes
+
+### Español
+[@KanekoEJ](https://twitter.com/KanekoEJ)
+[@kakusatou_3333](https://twitter.com/kakusatou_3333)
+[@mochigomerenshu](https://twitter.com/mochigomerenshu)

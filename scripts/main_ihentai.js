@@ -36,17 +36,43 @@ function MultipleLoadImage(imageUrl) {
     return imageElement;
 }
 
-function closeDoujinAndPrint() {
-    const last_page_url = `/resources/pages/${chrome.i18n.getMessage("language_code")}/last_page.png`;
+function createDialogElement() {
+    function modifyTitle() {
+        console.log(this);
+    }
+    const dialog = document.createElement("dialog");
+    dialog.classList.add("splash_dialog");
 
+    const main_title = document.createElement("p");
+    main_title.innerText = chrome.i18n.getMessage("current_image_title", [23, 34]);
+    dialog.appendChild(main_title);
+
+    const a = document.createElement("p");
+    a.innerText = chrome.i18n.getMessage("do_not_close_tab");
+    dialog.appendChild(a);
+
+    const b = document.createElement("p");
+    b.innerText = chrome.i18n.getMessage("duration_warning");
+    dialog.appendChild(b);
+
+    dialog.changeActualPage = modifyTitle;
+    return dialog;
+}
+
+function closeDoujinAndPrint() {
     const last_page_element = document.createElement("img");
     last_page_element.classList.add("doujin_page_image", "vertical");
-    last_page_element.setAttribute("src", chrome.runtime.getURL(last_page_url));
+    last_page_element.setAttribute("src", getLocalImage("last_page"));
     document.body.appendChild(last_page_element);
 
     last_page_element.addEventListener("load", () => window.print());
     return true;
 
+}
+
+function getLocalImage(image_code) {
+    const image_url = `/resources/pages/${chrome.i18n.getMessage("language_code")}/${image_code}.png`
+    return chrome.runtime.getURL(image_url);
 }
 
 function loadNextImage() {
@@ -58,7 +84,9 @@ function loadNextImage() {
 
     const base_link = "https://i.nhentai.net";
     const page_data = doujin_data.pages[window.last_image_index - 1];
-    const url = `${base_link}/galleries/${doujin_data.repo_id}/${window.last_image_index}.${page_data.type}`;
+    let url = `${base_link}/galleries/${doujin_data.repo_id}/${window.last_image_index}.${page_data.type}`;
+
+    if (page_data.type == "gif") url = getLocalImage("gif_page");
 
     const image_element = MultipleLoadImage(url);
     image_element.classList.add("doujin_page_image", page_data.orientation);
@@ -70,6 +98,8 @@ function loadNextImage() {
 async function Main() {
     const parent_tab = await chrome.runtime.sendMessage({ code: "who-is-my-parent" });
     const storage_data = await chrome.storage.local.get(null);
+
+    document.body.appendChild(createDialogElement());
 
     window["last_image_index"] = 0;
     window["doujin_data"] = storage_data["request_from_tab_" + parent_tab];

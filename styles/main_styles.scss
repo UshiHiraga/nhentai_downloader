@@ -9,6 +9,22 @@ hr {
     display: none;
 }
 
+.splash_dialog {
+    &::backdrop {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    width: fit-content;
+
+    p {
+        font-size: large;
+        color: rgb(0, 0, 0);
+    }
+
+}
+
 .body_printable {
     box-sizing: border-box;
     margin: 0;
@@ -37,5 +53,9 @@ hr {
     @page {
         size: letter;
         margin: 0in;
+    }
+
+    .splash_dialog {
+        display: none;
     }
 }

@@ -14,5 +14,17 @@
     "generate_download_nhentai": {
         "description": "In nhentai, this text is in the new download buttons.",
         "message": "Descargar este doujin"
-    }
+    },
+    "current_image_title": {
+        "description": "In ihentai, this text shows how many pages has been downloaded",
+        "message": "Cargando página $1 de $2"
+    },
+    "duration_warning": {
+        "description": "It warns that downloading the doujin is time consuming.",
+        "message": "Este proceso podría demorar unos minutos"
+    },
+    "do_not_close_tab": {
+        "description": "It warns that one can't close the tab.",
+        "message": "Por favor, no cierre esta pestaña"
+    } 
 }
