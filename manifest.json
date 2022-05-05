@@ -27,8 +27,8 @@
     "content_scripts": [
         {
             "matches": ["https://nhentai.net/g/*/"],
-            "css": ["/styles/css/vex.css", "/styles/css/vex-theme-top.css", "/styles/css/main_styles.min.css"],
-            "js": ["/scripts/modules/vex.combined.min.js", "/scripts/main_nhentai.js"]
+            "css": ["/styles/main_styles.min.css"],
+            "js": ["/scripts/main_nhentai.js"]
         },
         {
             "matches": ["https://i.nhentai.net/generando-doujin"],

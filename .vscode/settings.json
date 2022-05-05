@@ -12,7 +12,7 @@
         {
             "format": "compressed",
             "extensionName": ".min.css",
-            "savePath": "/styles/css"
+            "savePath": "~"
         },
     ],
     "liveSassCompile.settings.showOutputWindowOn": "Error",
