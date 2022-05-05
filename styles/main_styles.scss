@@ -14,21 +14,35 @@ hr {
         background-color: rgba(0, 0, 0, 0.8);
     }
 
+    margin: auto;
+    padding: 0px;
     background-color: rgba(0, 0, 0, 0);
     border: none;
-    width: fit-content;
+    width: 80%;
 
-    p {
-        font-size: large;
-        color: rgb(0, 0, 0);
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        p {
+            font-size: 1.5rem;
+            color: rgb(255, 255, 255);
+            padding: 5px;
+            margin: 0px;
+            &.main_title {
+                font-size: 5rem;
+            }
+        }
     }
+
 
 }
 
 .body_printable {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 }
 
 .doujin_page_image {

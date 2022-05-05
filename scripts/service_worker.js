@@ -30,9 +30,14 @@ function MessageEventHandler(message, sender, sendResponse) {
         else sendResponse(null);
     };
 
+    async function KillTab(){
+        await chrome.tabs.remove(sender.tab.id);
+    }
+
     switch (message.code) {
         case "generate-download-doujin": CreateTabAndSaveData(); break;
         case "who-is-my-parent": ReturnTabInfo(); break;
+        case "close-this-tab": KillTab(); break;
     };
 };
 
