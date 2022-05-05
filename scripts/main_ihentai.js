@@ -6,6 +6,7 @@ function MultipleLoadImage(imageUrl) {
     imageElement.maxNumberAttempts = 10;
     imageElement.currentAttempt = 0;
 
+    // Definimos los métodos.
     imageElement.load = function () {
         console.log(this);
         this.currentAttempt++;
@@ -15,7 +16,7 @@ function MultipleLoadImage(imageUrl) {
     imageElement.onSuccessHandler = function () {
         this.removeEventListener("load", this.onSuccessHandler);
         this.removeEventListener("error", this.onErrorHandler);
-        window.dispatchEvent(new Event("DoujinImageLoaded"));
+        window.dispatchEvent(new CustomEvent("DoujinImageLoaded", { detail: { element: this } }));
         console.log("Image has loaded.");
         return true;
     };
@@ -24,7 +25,7 @@ function MultipleLoadImage(imageUrl) {
         if (this.currentAttempt > this.maxNumberAttempts) {
             this.removeEventListener("load", this.onSuccessHandler);
             this.removeEventListener("error", this.onErrorHandler);
-            window.dispatchEvent(new Event("DoujinImagesFailed"));
+            window.dispatchEvent(new CustomEvent("DoujinImagesFailed", { detail: { element: this } }));
             throw new Error("Maximum number of attempts exceeded.");
         }
 
@@ -34,8 +35,12 @@ function MultipleLoadImage(imageUrl) {
         return true;
     }
 
-    imageElement.addEventListener("load", this.onSuccessHandler);
-    imageElement.addEventListener("error", this.onErrorHandler);
+    imageElement.initializateEvents = function () {
+        this.addEventListener("load", this.onSuccessHandler);
+        this.addEventListener("error", this.onErrorHandler);
+    }
+
+    imageElement.initializateEvents();
     return imageElement;
 }
 
@@ -106,12 +111,15 @@ function loadNextImage() {
     return true;
 };
 
-function onErrorHandler() {
+function onErrorHandler(e) {
     console.error("La carga de una imagen falló");
+    document.body.removeChild(e.detail.element);
+
     const image_element = MultipleLoadImage(getLocalImage("no_page"));
     image_element.classList.add("doujin_page_image", "vertical");
     image_element.load();
     document.body.appendChild(image_element);
+
     return true;
 }
 
