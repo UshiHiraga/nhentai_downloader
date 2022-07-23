@@ -14,8 +14,16 @@ Las instrucciones anteriores funcionan para la mayoría de los navegadores basad
 
 ## Créditos de las imágenes
 
-Español: [@KanekoEJ](https://twitter.com/KanekoEJ), [@mochigomerenshu](https://twitter.com/mochigomerenshu).
+### Página final
 
-Inglés: [@Lumo_1121](https://twitter.com/Lumo_1121), [@mychristian2](https://twitter.com/mychristian2).
+|                  Español                  |                   Inglés                    |                    Esperanto                    |
+| :---------------------------------------: | :-----------------------------------------: | :---------------------------------------------: |
+| [@KanekoEJ](https://twitter.com/KanekoEJ) | [@Lumo_1121](https://twitter.com/Lumo_1121) | [@yamasonson1](https://twitter.com/yamasonson1) |
 
-Esperanto: [@yamasonson1](https://twitter.com/yamasonson1), [@hufy926](https://twitter.com/hufy926).
+### Página de error
+
+| Idioma    |                          Autor                          |
+| :-------- | :-----------------------------------------------------: |
+| Español   | [@mochigomerenshu](https://twitter.com/mochigomerenshu) |
+| Inglés    |    [@mychristian2](https://twitter.com/mychristian2)    |
+| Esperanto |         [@hufy926](https://twitter.com/hufy926)         |
