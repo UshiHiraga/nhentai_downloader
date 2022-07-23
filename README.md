@@ -12,16 +12,10 @@ Consiga el archivo CRX en [Releases](https://github.com/UshiHiraga/nhentai_downl
   
 Las instrucciones anteriores funcionan para la mayoría de los navegadores basados en Chromium.
 
-## Créditos de las imagenes
+## Créditos de las imágenes
 
-### Español
-[@KanekoEJ](https://twitter.com/KanekoEJ)
-[@mochigomerenshu](https://twitter.com/mochigomerenshu)
+Español: [@KanekoEJ](https://twitter.com/KanekoEJ), [@mochigomerenshu](https://twitter.com/mochigomerenshu).
 
-### Inglés
-[@Lumo_1121](https://twitter.com/Lumo_1121)
-[@mychristian2](https://twitter.com/mychristian2)
+Inglés: [@Lumo_1121](https://twitter.com/Lumo_1121), [@mychristian2](https://twitter.com/mychristian2).
 
-### Esperanto
-[@yamasonson1](https://twitter.com/yamasonson1)
-[@hufy926](https://twitter.com/hufy926)
+Esperanto: [@yamasonson1](https://twitter.com/yamasonson1), [@hufy926](https://twitter.com/hufy926).
