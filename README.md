@@ -16,9 +16,17 @@ Las instrucciones anteriores funcionan para la mayoría de los navegadores basad
 
 ### Página final
 
-|                  Español                  |                   Inglés                    |                    Esperanto                    |
-| :---------------------------------------: | :-----------------------------------------: | :---------------------------------------------: |
-| [@KanekoEJ](https://twitter.com/KanekoEJ) | [@Lumo_1121](https://twitter.com/Lumo_1121) | [@yamasonson1](https://twitter.com/yamasonson1) |
+| Imagen |                      Autor                      |                            Post                            |
+| :----: | :---------------------------------------------: | :--------------------------------------------------------: |
+|   1    |   [@Lumo_1121](https://twitter.com/Lumo_1121)   |  https://twitter.com/KanekoEJ/status/1519791172499038208   |
+|   2    | [@yamasonson1](https://twitter.com/yamasonson1) |  https://twitter.com/Lumo_1121/status/1519740876297105408  |
+|   3    |    [@KanekoEJ](https://twitter.com/KanekoEJ)    | https://twitter.com/yamasonson1/status/1521835271876415488 |
+|   4    |   [@DailyRin_](https://twitter.com/DailyRin_)   |  https://twitter.com/DailyRin_/status/1531010748092190720  |
+|   5    |  [@meotjengi_](https://twitter.com/meotjengi_)  | https://twitter.com/meotjengi_/status/1544680576372068358  |
+|   6    |    [@AngryNum](https://twitter.com/AngryNum)    |  https://twitter.com/AngryNum/status/1543601162473345024   |
+|   7    | [@sushimekabu](https://twitter.com/sushimekabu) | https://twitter.com/sushimekabu/status/1531198732628279297 |
+|   8    |  [@abandonrnk](https://twitter.com/abandonrnk)  | https://twitter.com/abandonrnk/status/1544637717757427712  |
+|   9    |   [@Lumo_1121](https://twitter.com/Lumo_1121)   |  https://twitter.com/Lumo_1121/status/1525462235992051712  |
 
 ### Página de error
 
