@@ -27,7 +27,7 @@ function MultipleLoadImage(imageUrl) {
             window.dispatchEvent(new CustomEvent("DoujinImagesFailed", { detail: { element: this } }));
             throw new Error("Maximum number of attempts exceeded.");
         }
-        
+
         console.warn(`Attempt ${this.currentAttempt} has failed. Retrying.`)
         this.load();
         return true;
@@ -71,9 +71,17 @@ function createDialogElement() {
     return dialog;
 };
 
-function getLocalImage(image_code) {
-    const image_url = `/resources/pages/${chrome.i18n.getMessage("language_code")}/${image_code}.png`
-    return chrome.runtime.getURL(image_url);
+function getLocalImage(image_name) {
+
+    function randomIntBetween(min, max) { return Math.floor(Math.random() * (max + 1 - min) + min) };
+    const total_images = 9; // This changes with every version.
+
+    if (image_name == "last_page") {
+        const image_number = randomIntBetween(1, total_images);
+        return chrome.runtime.getURL(`/resources/pages/last/${image_number}.png`)
+    } else {
+        return chrome.runtime.getURL(`/resources/pages/failed/${chrome.i18n.getMessage("language_code")}.png`);
+    }
 }
 
 function loadNextImage() {
