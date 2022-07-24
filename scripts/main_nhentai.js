@@ -1,7 +1,7 @@
 function GetMetadataAndTransform() {
     function ConvertOriginalToImage(e) {
         let type = "jpg";
-        let orientation = "square";
+        let orientation = "horizontal";
         switch (e.t) {
             case "j": type = "jpg"; break;
             case "p": type = "png"; break;
@@ -9,8 +9,7 @@ function GetMetadataAndTransform() {
         }
 
         if (e.w < e.h) orientation = "vertical"
-        else if (e.h < e.w) orientation = "horizontal"
-
+        
         return {
             type,
             width: e.w,
