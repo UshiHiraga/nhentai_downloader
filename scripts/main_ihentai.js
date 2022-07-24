@@ -78,9 +78,9 @@ function getLocalImage(image_name) {
 
     if (image_name == "last_page") {
         const image_number = randomIntBetween(1, total_images);
-        return chrome.runtime.getURL(`/resources/pages/last/${image_number}.png`)
+        return chrome.runtime.getURL(`/resources/pages/last/${image_number}.jpg`)
     } else {
-        return chrome.runtime.getURL(`/resources/pages/failed/${chrome.i18n.getMessage("language_code")}.png`);
+        return chrome.runtime.getURL(`/resources/pages/failed/${chrome.i18n.getMessage("language_code")}.jpg`);
     }
 }
 
