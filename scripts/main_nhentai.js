@@ -17,6 +17,12 @@ function GetMetadataAndTransform() {
             orientation
         };
     };
+    
+    function replaceHandler(match){
+        const unicode_point_hex_value = parseInt(match.replace(/\\u/, ""), 16);
+        return String.fromCodePoint(unicode_point_hex_value);
+    };
+    
     const scripts_array = Array.from(document.querySelectorAll("script"));
     let script_text = scripts_array.find((e) => e.innerText.includes("window._gallery")).innerText;
     if (!script_text) throw new Error("No pudimos encontrar los datos.");
@@ -27,7 +33,7 @@ function GetMetadataAndTransform() {
     return {
         repo_id: String(original_data.media_id),
         media_id: String(original_data.id),
-        title: String(original_data.title.pretty),
+        title: original_data.title.pretty.replace(/\\u[A-Fa-f0-9]{4}/g, replaceHandler),
         num_pages: original_data.num_pages,
         pages: original_data.images.pages.map(ConvertOriginalToImage)
     };
