@@ -6,6 +6,7 @@ function GetMetadataAndTransform() {
             case "j": type = "jpg"; break;
             case "p": type = "png"; break;
             case "g": type = "gif"; break;
+            case "w": type = "webp"; break;
         }
 
         if (e.w < e.h) orientation = "vertical"
